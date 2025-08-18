@@ -6,6 +6,12 @@ export async function middleware(request: NextRequest) {
     request,
   })
 
+  // Supabase 환경 변수가 없으면 미들웨어를 건너뜀 (개발 환경)
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+    console.warn('Supabase 환경 변수가 설정되지 않았습니다. 미들웨어를 건너뜁니다.')
+    return supabaseResponse
+  }
+
   const supabase = createServerClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!,
