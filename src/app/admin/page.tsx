@@ -630,16 +630,13 @@ export default function AdminDashboard() {
 												{reservation.customerName}
 											</p>
 											<p className="text-sm text-gray-500 truncate">
-												{reservation.productName}
+												{reservation.cruise}
 											</p>
 											<p className="text-xs text-gray-400">
-												{formatDate(reservation.createdAt)}
+												{reservation.date}
 											</p>
 										</div>
 										<div className="flex flex-col items-end space-y-1">
-											<span className="text-sm font-medium text-[#005BAC]">
-												{formatPrice(reservation.amount)}
-											</span>
 											{getStatusBadge(reservation.status)}
 										</div>
 									</div>
