@@ -9,12 +9,13 @@ import { useAdminAuth } from "@/hooks/useAdminAuth";
 import { AdminLoginRequest } from "@/types/admin";
 
 export default function AdminLoginPage() {
-	const { login, loading, error } = useAdminAuth();
+	const { login, isLoading } = useAdminAuth();
 	const [formData, setFormData] = useState<AdminLoginRequest>({
 		username: "",
 		password: ""
 	});
 	const [showPassword, setShowPassword] = useState(false);
+	const [error, setError] = useState<string>("");
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -26,24 +27,33 @@ export default function AdminLoginPage() {
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
+		setError("");
 
 		// 유효성 검사
 		if (!formData.username.trim()) {
-			alert('아이디를 입력해주세요.');
+			setError('아이디를 입력해주세요.');
 			return;
 		}
 		if (!formData.password.trim()) {
-			alert('비밀번호를 입력해주세요.');
+			setError('비밀번호를 입력해주세요.');
 			return;
 		}
 
 		try {
-			await login(formData);
-			// 로그인 성공 시 대시보드로 이동
-			window.location.href = '/admin';
-		} catch (error) {
-			// 에러는 useAdminAuth에서 처리됨
-			console.error('Login failed:', error);
+			const success = await login({
+				email: formData.username,
+				password: formData.password
+			});
+			
+			if (success) {
+				// 로그인 성공 시 대시보드로 이동
+				window.location.href = '/admin';
+			} else {
+				setError("로그인에 실패했습니다. 아이디와 비밀번호를 확인해주세요.");
+			}
+		} catch (err) {
+			setError("로그인 중 오류가 발생했습니다. 다시 시도해주세요.");
+			console.error('Login failed:', err);
 		}
 	};
 
@@ -126,10 +136,10 @@ export default function AdminLoginPage() {
 							{/* 로그인 버튼 */}
 							<Button
 								type="submit"
-								disabled={loading}
+								disabled={isLoading}
 								className="w-full bg-[#005BAC] hover:bg-[#004494] text-white py-3 text-lg font-semibold flex items-center justify-center space-x-2"
 							>
-								{loading ? (
+								{isLoading ? (
 									<div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
 								) : (
 									<>

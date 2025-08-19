@@ -177,7 +177,7 @@ const statusDistributionData = [
 ];
 
 export default function AdminDashboard() {
-	const { admin, isAuthenticated } = useAdminAuth();
+	const { adminUser, isAuthenticated } = useAdminAuth();
 	const [stats, setStats] = useState<DashboardStats | null>(null);
 	const [loading, setLoading] = useState(true);
 
@@ -266,7 +266,7 @@ export default function AdminDashboard() {
 				<div className="bg-gradient-to-r from-[#005BAC] to-[#0066CC] rounded-2xl p-8 text-white">
 					<div className="flex items-center justify-between">
 						<div>
-							<h1 className="text-3xl font-bold mb-2">안녕하세요, {admin?.name}님! 👋</h1>
+							<h1 className="text-3xl font-bold mb-2">안녕하세요, {adminUser?.name}님! 👋</h1>
 							<p className="text-white/90 text-lg">오늘도 월미도 해양관광을 빛내주셔서 감사합니다.</p>
 							<div className="flex items-center space-x-6 mt-4">
 								<div className="flex items-center space-x-2">
