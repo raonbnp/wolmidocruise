@@ -677,7 +677,7 @@ export default function AdminDashboard() {
 													{user.email}
 												</p>
 												<p className="text-xs text-gray-400">
-													{formatDate(user.createdAt)}
+													{user.signupDate}
 												</p>
 											</div>
 										</div>
