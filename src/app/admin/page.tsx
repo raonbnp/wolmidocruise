@@ -64,77 +64,68 @@ const dummyStats: DashboardStats = {
 	unansweredQnas: 5,
 	recentReservations: [
 		{
-			id: 1,
-			orderNumber: 'WMD20240125001',
+			id: '1',
 			customerName: '홍길동',
-			productName: '불꽃 크루즈',
-			amount: 95000,
-			status: 'confirmed',
-			createdAt: '2024-01-25T14:30:00Z'
+			cruise: '불꽃 크루즈',
+			date: '2024-01-25',
+			status: 'confirmed'
 		},
 		{
-			id: 2,
-			orderNumber: 'WMD20240125002',
+			id: '2',
 			customerName: '김영희',
-			productName: '낙조 크루즈',
-			amount: 64000,
-			status: 'pending',
-			createdAt: '2024-01-25T13:45:00Z'
+			cruise: '낙조 크루즈',
+			date: '2024-01-25',
+			status: 'pending'
 		},
 		{
-			id: 3,
-			orderNumber: 'WMD20240125003',
+			id: '3',
 			customerName: '이철수',
-			productName: '행복 크루즈',
-			amount: 56000,
-			status: 'confirmed',
-			createdAt: '2024-01-25T12:20:00Z'
+			cruise: '행복 크루즈',
+			date: '2024-01-25',
+			status: 'confirmed'
 		}
 	],
 	recentUsers: [
 		{
-			id: 1,
+			id: '1',
 			name: '박민수',
 			email: 'park@example.com',
-			provider: 'local',
-			createdAt: '2024-01-25T15:20:00Z'
+			signupDate: '2024-01-25'
 		},
 		{
-			id: 2,
+			id: '2',
 			name: '최지영',
 			email: 'choi@example.com',
-			provider: 'kakao',
-			createdAt: '2024-01-25T14:15:00Z'
+			signupDate: '2024-01-25'
 		},
 		{
-			id: 3,
+			id: '3',
 			name: '정우진',
 			email: 'jung@example.com',
-			provider: 'naver',
-			createdAt: '2024-01-25T13:30:00Z'
+			signupDate: '2024-01-25'
 		}
 	],
 	recentQnas: [
 		{
-			id: 1,
+			id: '1',
 			title: '예약 취소 문의',
 			author: '김○○',
-			status: 'pending',
-			createdAt: '2024-01-25T16:00:00Z'
+			date: '2024-01-25',
+			status: 'pending'
 		},
 		{
-			id: 2,
+			id: '2',
 			title: '단체 할인 문의',
 			author: '이○○',
-			status: 'answered',
-			createdAt: '2024-01-25T15:30:00Z'
+			date: '2024-01-25',
+			status: 'answered'
 		},
 		{
-			id: 3,
+			id: '3',
 			title: '날씨 관련 문의',
 			author: '박○○',
-			status: 'pending',
-			createdAt: '2024-01-25T14:45:00Z'
+			date: '2024-01-25',
+			status: 'pending'
 		}
 	]
 };
