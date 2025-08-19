@@ -90,19 +90,22 @@ const dummyStats: DashboardStats = {
 			id: '1',
 			name: '박민수',
 			email: 'park@example.com',
-			signupDate: '2024-01-25'
+			signupDate: '2024-01-25',
+			provider: 'local'
 		},
 		{
 			id: '2',
 			name: '최지영',
 			email: 'choi@example.com',
-			signupDate: '2024-01-25'
+			signupDate: '2024-01-25',
+			provider: 'kakao'
 		},
 		{
 			id: '3',
 			name: '정우진',
 			email: 'jung@example.com',
-			signupDate: '2024-01-25'
+			signupDate: '2024-01-25',
+			provider: 'naver'
 		}
 	],
 	recentQnas: [

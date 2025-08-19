@@ -90,6 +90,7 @@ export interface DashboardStats {
 		name: string;
 		email: string;
 		signupDate: string;
+		provider: string;
 	}>;
 	recentQnas: Array<{
 		id: string;
