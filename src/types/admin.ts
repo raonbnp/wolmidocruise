@@ -78,9 +78,26 @@ export interface DashboardStats {
 	unansweredQnas: number;
 	
 	// 최근 활동
-	recentReservations: unknown[];
-	recentUsers: unknown[];
-	recentQnas: unknown[];
+	recentReservations: Array<{
+		id: string;
+		customerName: string;
+		cruise: string;
+		date: string;
+		status: string;
+	}>;
+	recentUsers: Array<{
+		id: string;
+		name: string;
+		email: string;
+		signupDate: string;
+	}>;
+	recentQnas: Array<{
+		id: string;
+		title: string;
+		author: string;
+		date: string;
+		status: string;
+	}>;
 }
 
 // 관리자 활동 로그
