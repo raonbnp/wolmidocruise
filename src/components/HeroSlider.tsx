@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
+import type { SwiperRef } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectFade } from "swiper/modules";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -13,7 +14,7 @@ import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
 const HeroSlider = () => {
-	const swiperRef = useRef<any>(null);
+	const swiperRef = useRef<SwiperRef>(null);
 
 	const slides = [
 		{

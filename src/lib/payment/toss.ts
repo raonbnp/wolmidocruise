@@ -23,7 +23,7 @@ export interface PaymentResponse {
 export const requestPayment = async (paymentData: PaymentRequest): Promise<PaymentResponse> => {
   try {
     // 토스페이먼츠 SDK 사용
-    const tossPayments = (window as any).TossPayments(process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY);
+    const tossPayments = (window as typeof window & { TossPayments: (key: string) => any }).TossPayments(process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY);
 
     await tossPayments.requestPayment('카드', {
       amount: paymentData.amount,
@@ -37,11 +37,11 @@ export const requestPayment = async (paymentData: PaymentRequest): Promise<Payme
     });
 
     return { success: true };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('결제 요청 실패:', error);
     return { 
       success: false, 
-      error: error.message || '결제 요청에 실패했습니다.' 
+      error: (error as Error).message || '결제 요청에 실패했습니다.' 
     };
   }
 };
@@ -80,11 +80,11 @@ export const confirmPayment = async (
       orderId: result.orderId,
       amount: result.totalAmount,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('결제 승인 실패:', error);
     return {
       success: false,
-      error: error.message || '결제 승인에 실패했습니다.'
+      error: (error as Error).message || '결제 승인에 실패했습니다.'
     };
   }
 };
@@ -123,11 +123,11 @@ export const cancelPayment = async (
       orderId: result.orderId,
       amount: result.cancelAmount,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('결제 취소 실패:', error);
     return {
       success: false,
-      error: error.message || '결제 취소에 실패했습니다.'
+      error: (error as Error).message || '결제 취소에 실패했습니다.'
     };
   }
 };
@@ -155,11 +155,11 @@ export const getPayment = async (paymentKey: string) => {
       success: true,
       data: result,
     };
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('결제 내역 조회 실패:', error);
     return {
       success: false,
-      error: error.message || '결제 내역 조회에 실패했습니다.'
+      error: (error as Error).message || '결제 내역 조회에 실패했습니다.'
     };
   }
 };

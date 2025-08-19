@@ -221,7 +221,7 @@ export default function AdminDashboard() {
 	};
 
 	const getStatusBadge = (status: string) => {
-		const statusConfig: { [key: string]: { label: string; variant: any; icon: any } } = {
+		const statusConfig: { [key: string]: { label: string; variant: string; icon: React.ComponentType } } = {
 			confirmed: { label: '확정', variant: 'default', icon: CheckCircle },
 			pending: { label: '대기', variant: 'secondary', icon: Clock },
 			cancelled: { label: '취소', variant: 'destructive', icon: XCircle },

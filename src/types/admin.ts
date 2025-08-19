@@ -78,9 +78,9 @@ export interface DashboardStats {
 	unansweredQnas: number;
 	
 	// 최근 활동
-	recentReservations: any[];
-	recentUsers: any[];
-	recentQnas: any[];
+	recentReservations: unknown[];
+	recentUsers: unknown[];
+	recentQnas: unknown[];
 }
 
 // 관리자 활동 로그

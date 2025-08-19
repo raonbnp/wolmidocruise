@@ -8,12 +8,27 @@ import { Clock, Users, MapPin, Star, Heart, ShoppingCart } from "lucide-react";
 import { useWishlist } from "@/hooks/useWishlist";
 import Link from "next/link";
 
+interface CruiseProduct {
+	id: number;
+	name: string;
+	description: string;
+	duration: string;
+	schedule: string;
+	adultPrice: number;
+	childPrice: number;
+	image: string;
+	isPopular?: boolean;
+	rating?: number;
+	reviewCount?: number;
+	tags?: string[];
+}
+
 const ProductCards = () => {
 	const { toggleWishlist, isInWishlist } = useWishlist();
 	const [showSuccessMessage, setShowSuccessMessage] = useState<number | null>(null);
 
 	// 위시리스트 토글 핸들러
-	const handleWishlistToggle = (product: any) => {
+	const handleWishlistToggle = (product: CruiseProduct) => {
 		const cruiseProduct = {
 			id: product.id,
 			name: product.name,

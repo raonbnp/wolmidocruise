@@ -142,7 +142,7 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 
 	// 아이콘 렌더링
 	const renderIcon = (iconName: string, className = "w-5 h-5") => {
-		const icons: { [key: string]: React.ComponentType<any> } = {
+		const icons: { [key: string]: React.ComponentType<{ className?: string }> } = {
 			LayoutDashboard,
 			Ship,
 			Calendar,
