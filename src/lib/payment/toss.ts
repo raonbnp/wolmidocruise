@@ -23,7 +23,7 @@ export interface PaymentResponse {
 export const requestPayment = async (paymentData: PaymentRequest): Promise<PaymentResponse> => {
   try {
     // 토스페이먼츠 SDK 사용
-    const tossPayments = (window as typeof window & { TossPayments: (key: string) => any }).TossPayments(process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY);
+    const tossPayments = (window as typeof window & { TossPayments: (key: string) => unknown }).TossPayments(process.env.NEXT_PUBLIC_TOSS_CLIENT_KEY);
 
     await tossPayments.requestPayment('카드', {
       amount: paymentData.amount,
