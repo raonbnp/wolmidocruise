@@ -36,7 +36,7 @@ interface AdminLayoutProps {
 
 export default function AdminLayout({ children }: AdminLayoutProps) {
 	const pathname = usePathname();
-	const { admin, logout, hasPermission } = useAdminAuth();
+	const { adminUser, logout, hasPermission } = useAdminAuth();
 
 	const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
@@ -292,8 +292,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 						<User className="w-5 h-5 text-white" />
 					</div>
 					<div className="flex-1 min-w-0">
-						<p className="text-sm font-semibold text-gray-900 truncate">{admin?.name}</p>
-						<p className="text-xs text-gray-500 truncate capitalize">{admin?.role?.replace('_', ' ')}</p>
+						<p className="text-sm font-semibold text-gray-900 truncate">{adminUser?.name}</p>
+						<p className="text-xs text-gray-500 truncate capitalize">{adminUser?.role?.replace('_', ' ')}</p>
 					</div>
 				</div>
 				<Button
@@ -363,8 +363,8 @@ export default function AdminLayout({ children }: AdminLayoutProps) {
 										<User className="w-4 h-4 text-white" />
 									</div>
 									<div className="hidden md:block text-right">
-										<p className="text-sm font-semibold text-gray-900">{admin?.name}</p>
-										<p className="text-xs text-gray-500 capitalize">{admin?.role?.replace('_', ' ')}</p>
+										<p className="text-sm font-semibold text-gray-900">{adminUser?.name}</p>
+										<p className="text-xs text-gray-500 capitalize">{adminUser?.role?.replace('_', ' ')}</p>
 									</div>
 									<ChevronDown className="w-4 h-4 text-gray-400 hidden md:block" />
 								</div>

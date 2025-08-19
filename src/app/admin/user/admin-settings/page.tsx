@@ -417,7 +417,25 @@ export default function AdminSettingsPage() {
 										</div>
 									</div>
 									<Button
-										onClick={() => startEdit(currentAdmin)}
+										onClick={() => {
+											if (currentAdmin) {
+												const adminForEdit: Admin = {
+													id: currentAdmin.id,
+													username: currentAdmin.username,
+													email: currentAdmin.email,
+													name: currentAdmin.name,
+													role: currentAdmin.role as Admin['role'],
+													permissions: Object.entries(currentAdmin.permissions)
+														.filter(([, value]) => value === true)
+														.map(([key]) => key),
+													isActive: currentAdmin.isActive,
+													lastLoginAt: currentAdmin.lastLoginAt,
+													createdAt: currentAdmin.createdAt,
+													updatedAt: currentAdmin.updatedAt
+												};
+												startEdit(adminForEdit);
+											}
+										}}
 										variant="outline"
 										className="flex items-center space-x-2"
 									>

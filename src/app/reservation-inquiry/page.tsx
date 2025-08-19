@@ -73,7 +73,7 @@ export default function ReservationInquiryPage() {
 			alert('주문번호를 입력해주세요.');
 			return;
 		}
-		if (!guestSearchForm.customerName.trim()) {
+		if (!guestSearchForm.customerName?.trim()) {
 			alert('예약자명을 입력해주세요.');
 			return;
 		}

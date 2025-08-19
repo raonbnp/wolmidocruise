@@ -15,17 +15,17 @@ export default function AdminAuthGuard({
 	requiredPermission,
 	fallback
 }: AdminAuthGuardProps) {
-	const { isAuthenticated, hasPermission, loading } = useAdminAuth();
+	const { isAuthenticated, hasPermission, isLoading } = useAdminAuth();
 
 	useEffect(() => {
 		// 로딩이 끝나고 인증되지 않은 경우 로그인 페이지로 리다이렉트
-		if (!loading && !isAuthenticated) {
+		if (!isLoading && !isAuthenticated) {
 			window.location.href = '/admin/login';
 		}
-	}, [isAuthenticated, loading]);
+	}, [isAuthenticated, isLoading]);
 
 	// 로딩 중
-	if (loading) {
+	if (isLoading) {
 		return (
 			<div className="min-h-screen flex items-center justify-center bg-gray-50">
 				<div className="text-center">
