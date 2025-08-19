@@ -17,9 +17,7 @@ import {
 	Users,
 	Ship,
 	MapPin,
-	Calendar,
-	AlertCircle,
-	Check
+	AlertCircle
 } from "lucide-react";
 import Link from "next/link";
 
@@ -115,8 +113,7 @@ export default function CruiseCreatePage() {
 	const [errors, setErrors] = useState<{ [key: string]: string }>({});
 	const [newOperatingTime, setNewOperatingTime] = useState("");
 	const [newFeature, setNewFeature] = useState("");
-	const [newIncludeItem, setNewIncludeItem] = useState("");
-	const [newExcludeItem, setNewExcludeItem] = useState("");
+
 
 	// 입력값 변경 핸들러
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

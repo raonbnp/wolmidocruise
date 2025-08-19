@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import AdminAuthGuard from "@/components/admin/AdminAuthGuard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -18,7 +18,7 @@ import {
 	Heart,
 	MessageCircle,
 	Share,
-	Filter,
+
 	Save,
 	X,
 	AlertCircle,
@@ -28,8 +28,7 @@ import {
 	Instagram,
 	Facebook,
 	Youtube,
-	Image as ImageIcon,
-	Upload
+
 } from "lucide-react";
 
 // 이벤트/SNS 타입

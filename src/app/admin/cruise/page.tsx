@@ -3,22 +3,20 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import AdminAuthGuard from "@/components/admin/AdminAuthGuard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
 	Plus,
 	Edit,
-	Trash2,
 	Eye,
 	Search,
-	Filter,
 	MoreHorizontal,
 	Ship,
 	Clock,
 	Users,
 	DollarSign
-} from "lucide-react";
+, Filter} from "lucide-react";
 import Link from "next/link";
 
 // 크루즈 상품 타입 (기존 타입 확장)
@@ -212,19 +210,7 @@ export default function AdminCruisePage() {
 		return price.toLocaleString('ko-KR');
 	};
 
-	// 상품 삭제
-	const handleDelete = async (productId: number) => {
-		if (!confirm('정말 이 상품을 삭제하시겠습니까?')) return;
 
-		try {
-			// 실제로는 API 호출
-			setProducts(prev => prev.filter(p => p.id !== productId));
-			alert('상품이 삭제되었습니다.');
-		} catch (error) {
-			console.error('Delete error:', error);
-			alert('삭제 중 오류가 발생했습니다.');
-		}
-	};
 
 	// 상품 상태 토글
 	const handleToggleStatus = async (productId: number) => {

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import AdminLayout from "@/components/admin/AdminLayout";
 import AdminAuthGuard from "@/components/admin/AdminAuthGuard";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -15,8 +15,7 @@ import {
 	EyeOff,
 	Star,
 	User,
-	Calendar,
-	Filter,
+
 	Save,
 	X,
 	AlertCircle,
@@ -26,9 +25,7 @@ import {
 	Heart,
 	MessageCircle,
 	Share,
-	ThumbsUp,
-	Upload,
-	Image as ImageIcon
+
 } from "lucide-react";
 
 // 리뷰 상태 타입

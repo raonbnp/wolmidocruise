@@ -10,17 +10,16 @@ import {
 	User,
 	Mail,
 	Phone,
-	Shield,
+
 	Key,
-	Settings,
+
 	Save,
 	Eye,
 	EyeOff,
-	AlertCircle,
-	Check,
+
 	Edit,
 	Trash2,
-	Plus,
+
 	UserPlus,
 	Crown,
 	ShieldCheck
@@ -34,7 +33,7 @@ interface Admin {
 	email: string;
 	name: string;
 	phone?: string;
-	role: 'super_admin' | 'admin' | 'manager' | 'staff';
+	role: 'super_admin' | 'admin' | 'manager' | 'staff' | 'operator' | 'viewer';
 	permissions: string[];
 	isActive: boolean;
 	lastLoginAt?: string;
@@ -63,7 +62,9 @@ const ROLE_PERMISSIONS = {
 	super_admin: PERMISSIONS.map(p => p.key),
 	admin: ['dashboard', 'cruise', 'reservation', 'user', 'notice', 'faq', 'qna', 'statistics'],
 	manager: ['dashboard', 'cruise', 'reservation', 'notice', 'faq', 'qna'],
-	staff: ['dashboard', 'reservation', 'faq', 'qna']
+	staff: ['dashboard', 'reservation', 'faq', 'qna'],
+	operator: ['dashboard', 'cruise', 'reservation', 'notice'],
+	viewer: ['dashboard']
 };
 
 // 더미 관리자 데이터
@@ -112,7 +113,7 @@ const dummyAdmins: Admin[] = [
 ];
 
 export default function AdminSettingsPage() {
-	const { admin: currentAdmin } = useAdminAuth();
+	const { adminUser: currentAdmin } = useAdminAuth();
 	const [admins, setAdmins] = useState<Admin[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [editingAdmin, setEditingAdmin] = useState<Admin | null>(null);
@@ -162,7 +163,9 @@ export default function AdminSettingsPage() {
 			super_admin: '최고관리자',
 			admin: '관리자',
 			manager: '매니저',
-			staff: '스태프'
+			staff: '스태프',
+			operator: '운영자',
+			viewer: '조회자'
 		};
 		return roleNames[role];
 	};
@@ -173,7 +176,9 @@ export default function AdminSettingsPage() {
 			super_admin: 'bg-red-100 text-red-800',
 			admin: 'bg-blue-100 text-blue-800',
 			manager: 'bg-green-100 text-green-800',
-			staff: 'bg-gray-100 text-gray-800'
+			staff: 'bg-gray-100 text-gray-800',
+			operator: 'bg-yellow-100 text-yellow-800',
+			viewer: 'bg-purple-100 text-purple-800'
 		};
 		return colors[role];
 	};

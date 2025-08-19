@@ -11,7 +11,7 @@ import {
 	Ship,
 	CreditCard,
 	TrendingUp,
-	TrendingDown,
+
 	MessageSquare,
 	AlertTriangle,
 	Clock,
@@ -30,8 +30,7 @@ import {
 	Area,
 	BarChart,
 	Bar,
-	LineChart,
-	Line,
+
 	PieChart,
 	Pie,
 	Cell,
@@ -204,15 +203,7 @@ export default function AdminDashboard() {
 		return (price / 10000).toFixed(0) + '만원';
 	};
 
-	const formatDate = (dateString: string) => {
-		const date = new Date(dateString);
-		return date.toLocaleString('ko-KR', {
-			month: 'short',
-			day: 'numeric',
-			hour: '2-digit',
-			minute: '2-digit'
-		});
-	};
+
 
 	const getStatusBadge = (status: string) => {
 		const statusConfig: { [key: string]: { label: string; variant: "default" | "destructive" | "outline" | "secondary"; icon: React.ComponentType<{ className?: string }> } } = {
@@ -720,9 +711,9 @@ export default function AdminDashboard() {
 											<p className="text-sm text-gray-500 truncate">
 												{qna.author}
 											</p>
-											<p className="text-xs text-gray-400">
-												{formatDate(qna.createdAt)}
-											</p>
+																									<p className="text-xs text-gray-400">
+															{qna.date}
+														</p>
 										</div>
 										<div className="flex flex-col items-end">
 											{getStatusBadge(qna.status)}
